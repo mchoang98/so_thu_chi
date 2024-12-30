@@ -3,6 +3,8 @@
 ## Giới thiệu
 
 Dự án "Quản lý Thu Chi" là một ứng dụng web đơn giản giúp người dùng theo dõi các khoản thu và chi của mình. Ứng dụng cho phép người dùng nhập dữ liệu, hiển thị danh sách các giao dịch, tính tổng số tiền thu chi, và hỗ trợ chức năng import/export dữ liệu qua file Excel.
+![image](https://github.com/user-attachments/assets/0e0b269d-7d14-45ad-987d-e009e9728d2d)
+
 
 ---
 
