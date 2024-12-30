@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý thu chi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+    <h1 class="text-3xl font-bold text-center mt-8">Quản lý thu chi</h1>
+
+    <!-- Khu vực import/export -->
+    <div class="flex justify-center items-center mt-6">
+        <input type="file" id="import-file" accept=".xlsx, .xls" class="border rounded-lg px-4 py-2 mr-4">
+        <button id="export-button" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Export to Excel</button>
+    </div>
+
+    <!-- Biểu mẫu nhập thông tin -->
+    <form id="transaction-form" class="max-w-lg mx-auto bg-white p-6 mt-8 rounded-lg shadow">
+        <div class="mb-4">
+            <label for="type" class="block text-sm font-medium text-gray-700">Loại:</label>
+            <select id="type" class="w-full border rounded-lg px-4 py-2 mt-2">
+                <option value="income">Thu</option>
+                <option value="expense">Chi</option>
+            </select>
+        </div>
+        <div class="mb-4">
+            <label for="description" class="block text-sm font-medium text-gray-700">Mô tả:</label>
+            <input type="text" id="description" placeholder="Nhập mô tả"
+                class="w-full border rounded-lg px-4 py-2 mt-2">
+        </div>
+        <div class="mb-4">
+            <label for="amount" class="block text-sm font-medium text-gray-700">Số tiền:</label>
+            <input type="number" id="amount" placeholder="Nhập số tiền"
+                class="w-full border rounded-lg px-4 py-2 mt-2">
+        </div>
+        <button type="submit"
+            class="w-full bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600">Thêm</button>
+    </form>
+
+    <!-- Danh sách thu chi -->
+    <div class="max-w-4xl mx-auto mt-8">
+        <table class="w-full border-collapse bg-white shadow rounded-lg">
+            <thead>
+                <tr class="bg-gray-200">
+                    <th class="border px-4 py-2">Loại</th>
+                    <th class="border px-4 py-2">Mô tả</th>
+                    <th class="border px-4 py-2">Số tiền</th>
+                    <th class="border px-4 py-2">Hành động</th>
+                </tr>
+            </thead>
+            <tbody id="transaction-list" class="divide-y">
+                <!-- Các giao dịch sẽ hiển thị ở đây -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Tổng số -->
+    <div class="max-w-lg mx-auto mt-6 bg-white p-6 rounded-lg shadow">
+        <p class="text-lg font-semibold">Tổng thu: <span id="total-income" class="text-green-500">0</span> VND</p>
+        <p class="text-lg font-semibold">Tổng chi: <span id="total-expense" class="text-red-500">0</span> VND</p>
+        <p class="text-lg font-semibold">Chênh lệch: <span id="total-diff">0</span> VND</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
