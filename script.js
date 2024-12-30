@@ -26,9 +26,9 @@ function updateUI() {
     transactions.forEach((transaction, index) => {
         const row = document.createElement("tr");
         row.innerHTML = `
-            <td class="border px-4 py-2">${transaction.type === "income" ? "Thu" : "Chi"}</td>
+            <td class="border px-4 py-2 ${transaction.type === "income" ? "text-green-500" : "text-red-500"}">${transaction.type === "income" ? "+ Thu" : "- Chi"}</td>
             <td class="border px-4 py-2">${transaction.description}</td>
-            <td class="border px-4 py-2">${transaction.amount.toLocaleString()} VND</td>
+            <td class="border px-4 py-2 ${transaction.type === "income" ? "text-green-500" : "text-red-500"}">${transaction.type === "income" ? "+" : "-"} ${transaction.amount.toLocaleString()} VND</td>
             <td class="border px-4 py-2 text-center">
                 <button onclick="deleteTransaction(${index})" class="text-red-500 hover:underline">Xóa</button>
             </td>
